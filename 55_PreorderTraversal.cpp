@@ -36,10 +36,10 @@ void traversal(string tree[], int index, int size)
 	// for example if a parent has a leaf node to its left, than the index needs to be updated
 	// That is the leaf node will not count, so we decrease our index to represent a valid parent node
 	// Again this is only for when the current parent had a leaf node sibling to its left
-	if (2 * index + 1 >= size && tree[index - 1] == "#")
-	{
-		index--;
-	}
+	// if (2 * index + 1 >= size && tree[index - 1] == "#")
+	// {
+	// 	index--;
+	// }
 
 	// move to the left of current node
 	traversal(tree, 2 * index + 1, size);
@@ -65,8 +65,9 @@ int main()
 	string B[] = { "4", "1", "5", "2", "#", "#", "#" };
 	string C[] = { "2", "6", "#" };
 	string D[] = { "5", "2", "6", "#", "9", "8", "1", "#", "#", "12", "15", "#", "#", "#", "45" };
-	
-	cout << PreorderTraversal(A, sizeof(A) / sizeof(A[0])) << endl; // 5 2 1 9 6 8 4
+	string res1=PreorderTraversal(A, sizeof(A) / sizeof(A[0])); //say
+	if(res1.size())res1.pop_back();
+	cout << res1 << endl; // 5 2 1 9 6 8 4
 	cout << PreorderTraversal(B, sizeof(B) / sizeof(B[0])) << endl; // 4 1 2 5
 	cout << PreorderTraversal(C, sizeof(C) / sizeof(C[0])) << endl; // 2 6
 	cout << PreorderTraversal(D, sizeof(D) / sizeof(D[0])) << endl; // 5 2 9 12 15 6 8 1 45
